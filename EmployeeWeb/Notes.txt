@@ -1,0 +1,1 @@
+﻿* Bu uygulama API tarafındaki yapıyı kullanarak VT üzerindeki tabloya bu uygulamadan ulasacağım. Dolayısıyla bazı ayarklar yapmak gerekiyor.

@@ -79,5 +79,25 @@ namespace EmployeeApi.Controllers
 
         }
 
+        // 5. Employee tablosu üzerinde id si verilen bir kayıdı silme
+        // DELETE: api/<EmployeeController>/5
+        [HttpDelete("id")] // HttpDelete annotate ve bir id bilgisine ihtiyac var.
+        public async Task<ActionResult<List<Employee>>> DeleteEmployee(int id)
+        {
+            var employee= await _context.Employees.FindAsync(id);
+
+            if (employee == null)
+            {
+                return BadRequest("Böyle bir çalışanınız yoktur...");
+            }
+
+            _context.Employees.Remove(employee);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(await _context.Employees.ToListAsync());
+        }
+
+
     }
 }

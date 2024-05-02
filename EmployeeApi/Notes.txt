@@ -14,3 +14,5 @@
 
 5- Bir tane Controller yazalım ki sistem ayağa kalksın.
 
+API tarafındaki testleri yaptıktan sonra (GET,GET(id),POST,PUT(id),DELETE(id)) burayı dışarıdan kullanacak bir uygulama olacağını düşünerek 2. bir normal MVC projesi yaratalım.
+
