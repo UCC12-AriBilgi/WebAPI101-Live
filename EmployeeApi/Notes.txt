@@ -1,1 +1,16 @@
-﻿
+﻿* Basit anlamda Employee bilgileri üzerinde işlemler yapacak API (Application Program Interface)
+
+1- Boş bir VT yaratalım.
+
+2- Uygulamaya VT ile ilişkili işlemler olacağı için gerekli NuGet paketlerini dahil edelim.
+	EntityFrameworkCore
+	EntityFrameworkCore.Design
+	EntityFrameworkCore.Tools
+	EntityFrameworkCore.SQLServer
+
+3- CF yapısını kullanarak bir model oluşturalım
+
+4- Program.cs altında ilgili DB yapısını ilgilendiren DbContext tanımlarının yapılması
+
+5- Bir tane Controller yazalım ki sistem ayağa kalksın.
+

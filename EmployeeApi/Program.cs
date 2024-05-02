@@ -1,4 +1,7 @@
 
+using EmployeeApi.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EmployeeApi
 {
     public class Program
@@ -10,6 +13,13 @@ namespace EmployeeApi
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Connection"));
+            });
+
+            // Swagger : API uygulama testlerinde yardýmcý olan bir ara katman.
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
