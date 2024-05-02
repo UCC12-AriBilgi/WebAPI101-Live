@@ -56,5 +56,28 @@ namespace EmployeeApi.Controllers
             return Ok(await _context.Employees.ToListAsync());
         }
 
+        // 4. Employee  tablosu üzerinde bir kayıdın güncelleme işlemi
+        // PUT: api/<EmployeeController>/5
+        [HttpPut("id")]
+        public async Task<ActionResult<List<Employee>>> UpdateEmployee(Employee request) // request --> api tarafından tasınan bilgi
+        {
+            // Üzerine gelen id bilgisine göre ilgili tablodan istenen kayıdı bulma işlemi
+            var dbemployee = await _context.Employees.FindAsync(request.Id);
+
+            if (dbemployee == null) 
+            {
+                return BadRequest("Böyle bir employee bulunamadı...");
+            }
+
+            dbemployee.FName= request.FName;
+            dbemployee.LName= request.LName;
+            dbemployee.City= request.City;
+
+            await _context.SaveChangesAsync(); // Kalıcı durum
+
+            return Ok(await _context.Employees.ToListAsync());
+
+        }
+
     }
 }
